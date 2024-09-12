@@ -1,8 +1,20 @@
 server:
+  # 서버에 바인딩될 네트워크 주소
   address: localhost
+  # 서버의 HTTP 포트
   port: 8080
+  # 스프링부트 안전종료 설정
+  shutdown: graceful
+
+spring:
+  lifecycle:
+    # 기본값은 30초임
+    timeout-per-shutdown-phase: 1m
+
+# 모든 액추에이터 엔드포인트를 HTTP로 공개
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+
